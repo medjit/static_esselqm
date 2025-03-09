@@ -1,0 +1,441 @@
+:root {
+   --primary-bg-color: #333;
+   --primary-text-color: white;
+   --secondary-bg-color: #f4f4f4;
+   --secondary-text-color: #000000;
+   --border-color: #ccc;
+   --dark-bg-color: #808080;
+   --hover-bg-color: #ddd;
+   --button-hover-color: #777;
+   --button-bg-color: #555;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   font-family: Arial, sans-serif;
+}
+
+/* Mobile-first styles */
+body {
+   background-color: var(--secondary-bg-color);
+   color: var(--secondary-text-color);
+}
+
+header {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   background-color: var(--primary-bg-color);
+   color: var(--primary-text-color);
+   padding: 10px;
+   position: sticky;
+   max-width: 100%;
+   top: 0;
+   z-index: 99999;
+}
+header > a {
+   height: 30px;
+   margin-left: 1.5rem;
+}
+
+header > a > img {
+   height: 30px;
+   margin-left: 1.5rem;
+}
+
+#hamburger {
+   font-size: 2rem;
+   background: none;
+   border: none;
+   color: var(--primary-text-color);
+   cursor: pointer;
+}
+
+.search-container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.search-container input[type='text'] {
+   padding: 5px;
+   font-size: 16px;
+   border: 1px solid var(--border-color);
+   max-width: 15rem;
+
+   border-radius: 5px 0 0 4px;
+}
+
+.search-container button {
+   padding: 5px 10px;
+   font-size: 16px;
+   border: 1px solid var(--border-color);
+   border-left: none;
+   background-color: var(--button-bg-color);
+   color: var(--primary-text-color);
+   cursor: pointer;
+   border-radius: 0 4px 4px 0;
+}
+
+.search-container button:hover {
+   background-color: var(--button-hover-color);
+}
+
+#sidebar {
+   width: 200px;
+   background-color: var(--secondary-bg-color);
+   height: calc(100vh - 80px); /* Adjust based on header height */
+   position: fixed;
+   top: 50px;
+   left: 0;
+   padding: 1rem 0;
+   transition: transform 0.3s ease;
+   transform: translateX(-100%);
+   z-index: 9999; /* Ensure it is above the main content */
+}
+
+#sidebar.show {
+   transform: translateX(0);
+}
+
+#sidebar ul {
+   list-style-type: none;
+}
+
+#sidebar ul li {
+   padding: 1rem 1rem;
+}
+
+#sidebar ul li:hover {
+   background-color: var(--hover-bg-color);
+}
+
+#sidebar ul li a {
+   color: inherit;
+   font-size: 14pt;
+   text-decoration: none;
+   text-transform: capitalize;
+   letter-spacing: 1px;
+}
+
+#sidebar ul li.active {
+   font-weight: 600;
+   background-color: var(--hover-bg-color);
+}
+
+#sidebar .quote {
+   position: absolute;
+   bottom: 10px;
+   left: 10px;
+   right: 10px;
+   font-size: 11pt;
+   text-align: center;
+}
+
+/* Theme-specific styles */
+body.light-theme {
+   background-color: var(--secondary-bg-color);
+   color: var(--secondary-text-color);
+}
+
+body.dark-theme {
+   background-color: var(--dark-bg-color);
+   color: var(--primary-text-color);
+}
+
+body.light-theme #sidebar {
+   background-color: var(--secondary-bg-color);
+}
+
+body.light-theme .card-wrapper {
+   background-color: var(--secondary-bg-color);
+   color: var(--secondary-text-color);
+}
+
+body.dark-theme .card-wrapper {
+   background-color: var(--primary-bg-color);
+   color: var(--primary-text-color);
+}
+
+body.dark-theme #sidebar {
+   background-color: var(--primary-bg-color);
+}
+
+#theme-toggle {
+   margin: 10px;
+   padding: 5px 10px;
+   cursor: pointer;
+}
+
+main {
+   margin: 0.8rem 0.8rem;
+   flex-grow: 1;
+   transition: margin-left 0.3s ease;
+}
+
+#main-content {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: flex-start;
+   max-width: 100%;
+   gap: 1rem;
+}
+
+.file-box,
+.pdf-box {
+   display: flex;
+   flex-direction: column;
+   align-items: left;
+   text-align: left;
+   flex: 1 1 calc(100% - 20px); /* Start with 1 item per row on extra small screens */
+   border: 1px solid var(--border-color);
+   border-radius: 5px;
+   max-width: 100%;
+   box-sizing: border-box;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   background-color: var(--primary-text-color);
+}
+.card-wrapper {
+   display: flex;
+   align-items: center;
+   border: 1px solid var(--border-color);
+   border-radius: 5px;
+   padding: 0.5rem 0.5rem;
+   background-color: var(--primary-text-color);
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   gap: 0.5rem;
+   word-break: break-word;
+   word-wrap: break-word;
+   width: 100%;
+   flex: 1 1 calc(33.33% - 1.3rem); /* Cards will take up roughly 1/3 of the row minus the gap */
+   min-width: 350px; /* Prevents cards from becoming too small */
+}
+.card-wrapper .card-info {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   height: 100%;
+   width: 100%;
+}
+.card-wrapper .card-info h3 {
+   text-align: center;
+   margin-bottom: 1.5rem;
+   height: 20%;
+}
+
+.card-wrapper .card-info p {
+   margin-bottom: 0.5rem;
+}
+
+.card-wrapper .image {
+   width: 15rem;
+   max-width: 60%;
+   height: 100%;
+   max-height: fit-content;
+}
+
+.card-wrapper .image img {
+   max-width: 100%;
+   height: fit-content;
+}
+
+.card-wrapper .actions {
+   display: flex;
+   justify-content: center;
+   margin-top: auto;
+   gap: 1rem;
+}
+
+.card-wrapper .actions button {
+   padding: 5px;
+   cursor: pointer;
+   display: flex;
+}
+
+.card-wrapper
+
+.file-image {
+   max-width: 150px; /* Limit the image width */
+   height: auto;
+   border-radius: 5px;
+}
+
+.file-info {
+   flex: 1;
+}
+.folder-image,
+.file-image {
+   max-width: 100%;
+   height: auto;
+   border-radius: 5px;
+}
+
+.folder-info,
+.file-info {
+   margin-top: 10px;
+}
+
+.folder-box {
+   cursor: pointer;
+   max-width: fit-content;
+}
+.folder-box img {
+   max-width: 420px;
+   border-radius: 5px;
+}
+.folder-box h3 {
+   margin-bottom: 0.5rem;
+}
+
+audio {
+   width: 95%;
+   margin: 1rem;
+   box-sizing: border-box;
+   border: 1px solid var(--border-color);
+}
+
+.load-more-btn {
+   display: block;
+   margin: 2rem auto;
+   padding: 1rem 2rem;
+   font-size: 1.2rem;
+   background-color: var(--button-bg-color);
+   color: var(--primary-text-color);
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   text-align: center;
+}
+
+.load-more-btn:hover {
+   background-color: var(--button-hover-color);
+}
+
+/* Media queries for larger screens */
+@media (min-width: 480px) {
+   .folder-box,
+   .file-box,
+   .pdf-box,
+   .card-wrapper {
+      flex: 1 1 calc(50% - 20px); /* 2 items per row on small screens */
+   }
+   .card-wrapper {
+      width: 100%;
+   }
+}
+
+@media (min-width: 768px) {
+   .folder-box,
+   .file-box,
+   .pdf-box,
+   .card-wrapper {
+      flex: 1 1 calc(33.33% - 20px); /* 3 items per row on medium screens */
+   }
+  
+}
+
+@media (min-width: 1024px) {
+   .folder-box,
+   .file-box,
+   .pdf-box,
+   .card-wrapper {
+      flex: 1 1 calc(20% - 20px); /* 5 items per row on larger screens */
+   }
+   .card-wrapper {
+      max-width: calc(
+         33.33% - 1.3rem
+      ); /* Ensures they don't exceed this width */
+   }
+}
+.about-us {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   margin-top: 2rem;
+}
+.about-us p {
+   margin-bottom: 0.7rem;
+}
+
+.audio-player {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   border: 2px solid var(--border-color);
+   border-radius: 10px;
+   padding: 1rem;
+   margin: 1rem 0;
+   background-color: var(--primary-text-color);
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.audio-thumbnail {
+   max-width: 100%;
+   border-radius: 5px;
+   margin-bottom: 1rem;
+   border: 1px solid black;
+}
+
+.audio-info {
+   text-align: center;
+   margin-bottom: 1rem;
+}
+
+.audio-title {
+   font-size: 1.5rem;
+   margin-bottom: 0.5rem;
+}
+
+.audio-author,
+.audio-id {
+   font-size: 1rem;
+   margin-bottom: 0.3rem;
+}
+
+.audio-buttons {
+   display: flex;
+   gap: 1rem;
+   margin-bottom: 1rem;
+}
+
+.audio-buttons button {
+   padding: 0.5rem 1rem;
+   cursor: pointer;
+   border: 1px solid black;
+   border-radius: 5px;
+   background-color: var(--primary-text-color);
+   color: black;
+}
+
+.audio-buttons button:hover {
+   background-color: var(--button-hover-color);
+}
+
+audio {
+   width: 100%;
+   margin-top: 1rem;
+}
+
+.autoplay-control {
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+   border: 1px solid var(--border-color);
+   padding: 0.5rem;
+   border-radius: 5px;
+}
+
+.autoplay-control label {
+   font-size: 1rem;
+   color: var(--secondary-text-color);
+}
+
+.autoplay-control input[type='checkbox'] {
+   width: 1rem;
+   height: 1rem;
+   cursor: pointer;
+}
