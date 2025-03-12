@@ -1,4 +1,6 @@
-{
+// This is a JavaScript file that assigns the JSON data to a variable
+
+var Mishari_Rashid_Al_Afasi_data = {
   "generated_at": "2025-03-09T18:51:20.202Z",
   "files": [
     {
@@ -343,4 +345,4 @@
     }
   ],
   "size": 7539
-}
+};

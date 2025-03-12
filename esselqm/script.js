@@ -32,12 +32,24 @@ document.addEventListener('DOMContentLoaded', function () {
    // Check if the current page is the index page
    if (window.location.pathname.endsWith('index.html') ||
        window.location.pathname === '/') {
-            fetchMetadata().then(() => {
-            getRandomFromLocalMetadata();
-      });
+         // Load the 'data' object
+         console.log(main_data);
+
+         // Dynamically create and load the script for Mishari Rashid Al Afasi
+         const script = document.createElement('script');
+         script.src = main_data.artists[0].path; // Use the artist path from the 'data' object
+         script.onload = function() {
+            // Once the script is loaded, you can print the content to the console
+            console.log('Mishari Rashid Al Afasi data loaded');
+            // Print the content here (assuming the content is in the global scope)
+            const filename = script.src.split('/').pop().replace('.js', '');
+            const artistData = window[`${filename}_data`];
+            console.log(artistData); // This would print the `artistData` object
+         };
+         document.head.appendChild(script); // Append the script to the head of the document
    }
 
-   //Load the theme from local storage
+   // Load the theme from local storage
    const savedTheme = localStorage.getItem('theme');
    if (savedTheme) {
       document.body.classList.add(`${savedTheme}-theme`);
@@ -45,6 +57,8 @@ document.addEventListener('DOMContentLoaded', function () {
       document.body.classList.add('light-theme');
    }
 });
+
+
 
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
@@ -236,15 +250,26 @@ let LectureList = []; // List to store all lectures fetched from the metadata fi
 async function fetchMetadata() {
    try {
       // Fetch the JSON file containing the lecture metadata
-      const response = await fetch(`esselqm_static_content/metadata/scannedData.json`);
+      const response = await fetch(`/generated/main_data.json`);
       
       // If the fetch request fails (non-2xx response), throw an error
       if (!response.ok) {
          throw new Error('Failed to fetch metadata');
+      } else {
+         console.log('Metadata fetched successfully');
       }
 
-      // Parse the JSON response and store it in LectureList
-      LectureList = await response.json();
+      // Fetch data for each artist and add it to LectureList
+      const metadata = await response.json();
+      const artistPromises = metadata.artists.map(async (artist) => {
+         const artistResponse = await fetch(artist.path);
+         if (!artistResponse.ok) {
+            throw new Error(`Failed to fetch artist data from ${artist.path}`);
+         }
+         const artistData = await artistResponse.json();
+         LectureList = LectureList.concat(artistData);
+      });
+      await Promise.all(artistPromises);
       
       // Log the fetched data to the console for debugging purposes
       console.log(LectureList);
