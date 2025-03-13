@@ -32,23 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
    // Check if the current page is the index page
    if (window.location.pathname.endsWith('index.html') ||
        window.location.pathname === '/') {
-         // Load the 'data' object
-         console.log(main_data);
-
-         // Dynamically create and load the script for each artist in main_data
-         main_data.artists.forEach(artist => {
-            const script = document.createElement('script');
-            script.src = artist.path; // Use the artist path from the 'data' object
-            script.onload = function() {
-               // Once the script is loaded, you can print the content to the console
-               console.log(`${artist.name} data loaded`);
-               // Print the content here (assuming the content is in the global scope)
-               const filename = script.src.split('/').pop().replace('.js', '');
-               const artistData = window[`${filename}_data`];
-               console.log(artistData); // This would print the `artistData` object
-            };
-            document.head.appendChild(script); // Append the script to the head of the document
-         });
+         loadLectures();
    }
 
    // Load the theme from local storage
@@ -60,8 +44,97 @@ document.addEventListener('DOMContentLoaded', function () {
    }
 });
 
+let lectureList = [];
+function loadLectures() {
+   console.log('Loading lectures...');
+   console.log(main_data);
+   //load local stored data
+   // Check local storage for data with tag *_data_json
+   for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key.endsWith('_data_json')) {
+         const storedData = localStorage.getItem(key);
+         if (storedData) {
+            try {
+               const parsedData = JSON.parse(storedData);
+               lectureList = lectureList.concat(parsedData);
+               console.log(`Loaded data for ${key}:`, parsedData);
+            } catch (error) {
+               console.error(`Error parsing data from ${key}:`, error);
+            }
+         }
+      }
+   }
 
+   // Compare dates and print objects with newer dates in main_data
+   main_data.artists.forEach(artist => {
+      const localArtist = lectureList.find(local => local && local.name === artist.name);
+      if (localArtist) {
+         const localDate = new Date(localArtist.generated_at);
+         const mainDate = new Date(artist.generated_at);
 
+         if (mainDate > localDate) {
+            console.log(`Newer data available for ${artist.name}:`, artist);
+            const hostPath = main_data.artists.find(a => a.name === artist.name).path;
+            loadNewDataFromHost(artist.name, hostPath);
+         }
+      } else {
+         console.log(`No local data found for ${artist.name}.`);
+          const hostPath = main_data.artists.find(a => a.name === artist.name).path;
+          loadNewDataFromHost(artist.name, hostPath);
+      }
+   });
+   console.log('Lectures loaded.');
+   console.log(lectureList);
+   displayRandomLectures(33);
+}
+
+function loadNewDataFromHost(artist, hostPath) {
+   console.log(`Loading new data for ${artist} from ${hostPath}`);
+   const script = document.createElement('script');
+   script.src = hostPath;
+   script.onload = function () {
+      const dataVariableName = `${artist}_data`;
+      const newData = window[dataVariableName];
+      if (newData) {
+         // Update the artist in lectureList
+         const artistIndex = lectureList.findIndex(item => item.name === artist);
+         if (artistIndex !== -1) {
+            lectureList[artistIndex] = newData;
+         } else {
+            lectureList.push(newData);
+         }
+
+         // Update the artist data in local storage
+         localStorage.setItem(`${artist}_data_json`, JSON.stringify(newData));
+      } else {
+         console.error(`Data variable ${dataVariableName} not found.`);
+      }
+   };
+   script.onerror = function () {
+      console.error(`Failed to load script from ${hostPath}`);
+   };
+   document.body.appendChild(script);
+}
+
+function displayRandomLectures(number = 33) {
+   const randomLectures = [];
+   const shuffledLectures = lectureList.flatMap(lecture => lecture.files) // Flatten all files from all lectures into one array
+                                  .sort(() => 0.5 - Math.random()); // Shuffle the flattened array
+   
+   // Pick the random number of lectures (based on the `number` variable)
+   for (let i = 0; i < Math.min(number, shuffledLectures.length); i++) {
+      randomLectures.push(shuffledLectures[i]);
+   }
+   
+   console.log('Random lectures:', randomLectures);
+   generateFileBoxes(randomLectures);
+   
+}
+
+//audio
+// store audio progress in local storage
+// restore audio progress from local storage
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 //                  Generate HTML box for every mp3 file                       //
@@ -158,7 +231,7 @@ function generateFileBoxes(files) {
    randomButton.textContent = 'Още';
    randomButton.id = 'load-more-btn';
    randomButton.addEventListener('click', () => {
-      getRandomFromLocalMetadata(33);
+      displayRandomLectures(33);
       window.scrollTo({ top: 0, behavior: 'smooth' });
    });
    container.appendChild(randomButton);
@@ -242,71 +315,6 @@ function createAndPlayAudio(cardInfo, audioSrc) {
 
    // Play the audio (it's already set to autoplay, but this ensures it's played if needed)
    audioElement.play();
-}
-
-
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
-//  Fetch pregenerated JSON file from server containing list of all lectures   //
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
-let LectureList = []; // List to store all lectures fetched from the metadata file
-async function fetchMetadata() {
-   try {
-      // Fetch the JSON file containing the lecture metadata
-      const response = await fetch(`/generated/main_data.json`);
-      
-      // If the fetch request fails (non-2xx response), throw an error
-      if (!response.ok) {
-         throw new Error('Failed to fetch metadata');
-      } else {
-         console.log('Metadata fetched successfully');
-      }
-
-      // Fetch data for each artist and add it to LectureList
-      const metadata = await response.json();
-      const artistPromises = metadata.artists.map(async (artist) => {
-         const artistResponse = await fetch(artist.path);
-         if (!artistResponse.ok) {
-            throw new Error(`Failed to fetch artist data from ${artist.path}`);
-         }
-         const artistData = await artistResponse.json();
-         LectureList = LectureList.concat(artistData);
-      });
-      await Promise.all(artistPromises);
-      
-      // Log the fetched data to the console for debugging purposes
-      console.log(LectureList);
-   } catch (error) {
-      // If any error occurs during the fetch operation, log the error message
-      console.error('Error:', error);
-   }
-}
-
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
-//                  Choose random lectures from the list                       //
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
-async function getRandomFromLocalMetadata(amount = 33) {
-   const randomFiles = [];  // Array to hold the randomly selected lectures
-   const usedIndices = new Set();  // Set to keep track of indices that have already been used to avoid duplicates
-
-   // Continue selecting random lectures until the desired amount is reached
-   // or until all lectures in the list have been used
-   while (randomFiles.length < amount && usedIndices.size < LectureList.length) {
-      // Generate a random index between 0 and the length of the LectureList array
-      const randomIndex = Math.floor(Math.random() * LectureList.length);
-      
-      // If this index hasn't been used before, add the lecture to the randomFiles array
-      // and mark the index as used
-      if (!usedIndices.has(randomIndex)) {
-         randomFiles.push(LectureList[randomIndex]);
-         usedIndices.add(randomIndex);
-      }
-   }
-
-   // Log the randomly selected lectures to the console for debugging
-   console.log(randomFiles);
-
-   // Call the function to display the randomly selected lectures on the webpage
-   generateFileBoxes(randomFiles);
 }
 
 

@@ -1,5 +1,6 @@
 var Byulent_Myumyunov_data = {
-  "generated_at": "2025-03-13T05:04:16.678Z",
+  "generated_at": "2025-03-13T19:00:21.687Z",
+  "artist": "Byulent_Myumyunov",
   "files": [
     {
       "name": "00115.mp3",

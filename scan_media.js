@@ -180,6 +180,7 @@ async function scanAndStoreData() {
         const artistFileSize = Buffer.byteLength(JSON.stringify(artistData), 'utf8');  // Get the size of the artist JSON file
         const artistJsonData = {
             generated_at: new Date().toISOString(),  // Timestamp when the artist JSON file was generated
+            artist: artistData.artist,              // Artist name
             files: artistData.files,                // List of MP3 files for the artist
             size: artistFileSize                    // Size of the artist's JSON file
         };

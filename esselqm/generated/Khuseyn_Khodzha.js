@@ -1,5 +1,6 @@
 var Khuseyn_Khodzha_data = {
-  "generated_at": "2025-03-13T05:04:16.680Z",
+  "generated_at": "2025-03-13T19:00:21.693Z",
+  "artist": "Khuseyn_Khodzha",
   "files": [
     {
       "name": "00282.mp3",

@@ -1,5 +1,6 @@
 var Mishari_Rashid_Al_Afasi_data = {
-  "generated_at": "2025-03-13T05:04:16.676Z",
+  "generated_at": "2025-03-13T19:00:21.685Z",
+  "artist": "Mishari_Rashid_Al_Afasi",
   "files": [
     {
       "name": "00001.mp3",
