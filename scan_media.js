@@ -15,7 +15,7 @@ const mp3Duration = require('mp3-duration'); // Module to get the duration of MP
 const cyrillicToLatin = require('cyrillic-to-latin');  // Converts Cyrillic characters to Latin alphabet
 
 // Define paths for the audio files and where to save metadata and thumbnails
-const dataFilePath = path.join(__dirname, 'esselqm', 'generated', 'main_data.json'); // Path to store the main data JSON
+const dataFilePath = path.join(__dirname, 'esselqm', 'generated', 'main_data.js'); // Path to store the main data JSON
 const audioFilesFolderPath = path.join(__dirname, 'esselqm', 'media', 'audio');     // Path to the folder containing MP3 files
 const thumbnailFolderPath = path.join(__dirname, 'esselqm', 'generated', 'thumbnails'); // Path to store thumbnail images
 
@@ -59,7 +59,7 @@ function getMp3Data(filePath) {
                     title: tags.title || null,           // Title of the song, or null if not available
                     trackNumber: tags.trackNumber || null, // Track number in the album, or null if not available
                     year: tags.year || null,             // Year the song was released, or null if not available
-                    image: tags.image ? path.relative(__dirname, path.join(thumbnailFolderPath, `${tags.partOfSet}.jpg`)) : null, // Thumbnail image file path, or null if not available
+                    image: tags.image ? path.relative(__dirname, path.join(thumbnailFolderPath.replace('esselqm/', ''), `${tags.partOfSet}.jpg`)) : null, // Thumbnail image file path, or null if not available
                     duration: durationString             // Duration of the MP3 file
                 };
 
@@ -117,7 +117,7 @@ async function scanAllFiles() {
                     // Push MP3 file data into the artist's data
                     artistData.files.push({
                         name: file,                    // File name
-                        path: path.relative(__dirname, filePath),  // Relative file path
+                        path: path.relative(__dirname, filePath.replace('esselqm/', '')),  // Relative file path
                         data: mp3Data                  // Metadata for the MP3 file
                     });
 
@@ -153,14 +153,14 @@ async function scanAndStoreData() {
         const dataDir = path.dirname(dataFilePath);
         const files = await fs.promises.readdir(dataDir);
         for (const file of files) {
-            if (path.extname(file) === '.json') {  // Check if the file is a JSON file
+            if (path.extname(file) === '.js') {  // Check if the file is a JSON file
                 const filePath = path.join(dataDir, file);
                 await fs.promises.unlink(filePath);  // Delete the JSON file
             }
         }
-        console.log("All JSON files in the data directory deleted.");
+        console.log("All JS files in the data directory deleted.");
     } catch (err) {
-        console.error("Error deleting JSON files in the data directory:", err);  // Handle error in deleting JSON files
+        console.error("Error deleting JS files in the data directory:", err);  // Handle error in deleting JSON files
     }
 
     // Start scanning MP3 files and collecting metadata
@@ -175,7 +175,7 @@ async function scanAndStoreData() {
 
     // Loop through each artist and create individual JSON files
     for (const artistData of scannedData) {
-        const artistJsonFileName = `${artistData.artist}.json`;  // File name for the artist's JSON
+        const artistJsonFileName = `${artistData.artist}.js`;  // File name for the artist's JSON
         const artistJsonFilePath = path.join('esselqm', 'generated', artistJsonFileName);  // Path to save artist's JSON
         const artistFileSize = Buffer.byteLength(JSON.stringify(artistData), 'utf8');  // Get the size of the artist JSON file
         const artistJsonData = {
@@ -184,12 +184,16 @@ async function scanAndStoreData() {
             size: artistFileSize                    // Size of the artist's JSON file
         };
 
+        // Generate JavaScript variable with the artist folder name
+        const artistFolderName = artistData.artist;  // The folder name should be the artist's name (already converted to Latin)
+        const artistJsContent = `var ${artistFolderName}_data = ${JSON.stringify(artistJsonData, null, 2)};`;
+
         try {
-            await fs.promises.writeFile(path.join(__dirname, artistJsonFilePath), JSON.stringify(artistJsonData, null, 2));  // Write the artist data to a JSON file
+            await fs.promises.writeFile(path.join(__dirname, artistJsonFilePath), artistJsContent);  // Write the JS variable data to the file
             console.log(`Artist data saved to ${artistJsonFilePath}`);
             mainData.artists.push({
                 name: artistData.artist,
-                path: artistJsonFilePath,
+                path: artistJsonFilePath.replace('esselqm/', ''),  // Remove 'esselqm/' from the path
                 size: artistFileSize,
                 generated_at: artistJsonData.generated_at
             });
@@ -200,7 +204,7 @@ async function scanAndStoreData() {
 
     // Write the main data JSON file containing all artist metadata
     try {
-        await fs.promises.writeFile(dataFilePath, JSON.stringify(mainData, null, 2));  // Write the main data to a JSON file
+        await fs.promises.writeFile(dataFilePath, `var main_data = ${JSON.stringify(mainData, null, 2)};`);  // Write the main data to a JS variable
         console.log(`Main data saved to ${dataFilePath}`);
     } catch (err) {
         console.error("Error writing main data to file:", err);  // Handle error in writing the main data

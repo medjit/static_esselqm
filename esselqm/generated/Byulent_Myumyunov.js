@@ -1,9 +1,9 @@
-{
-  "generated_at": "2025-03-09T18:51:20.204Z",
+var Byulent_Myumyunov_data = {
+  "generated_at": "2025-03-13T05:04:16.678Z",
   "files": [
     {
       "name": "00115.mp3",
-      "path": "esselqm/media/audio/00115.mp3",
+      "path": "media/audio/00115.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -17,13 +17,13 @@
         "title": "1. АЛ-ФАТИХА",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00115.jpg",
+        "image": "generated/thumbnails/00115.jpg",
         "duration": "0:25"
       }
     },
     {
       "name": "00196.mp3",
-      "path": "esselqm/media/audio/00196.mp3",
+      "path": "media/audio/00196.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -37,13 +37,13 @@
         "title": "82. СУРА АЛ-ИНФИТАР",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00196.jpg",
+        "image": "generated/thumbnails/00196.jpg",
         "duration": "1:01"
       }
     },
     {
       "name": "00200.mp3",
-      "path": "esselqm/media/audio/00200.mp3",
+      "path": "media/audio/00200.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -57,13 +57,13 @@
         "title": "86. СУРА АТ-ТАРИК",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00200.jpg",
+        "image": "generated/thumbnails/00200.jpg",
         "duration": "0:48"
       }
     },
     {
       "name": "00201.mp3",
-      "path": "esselqm/media/audio/00201.mp3",
+      "path": "media/audio/00201.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -77,13 +77,13 @@
         "title": "87. СУРА АЛ-АЛЯ",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00201.jpg",
+        "image": "generated/thumbnails/00201.jpg",
         "duration": "1:00"
       }
     },
     {
       "name": "00202.mp3",
-      "path": "esselqm/media/audio/00202.mp3",
+      "path": "media/audio/00202.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -97,13 +97,13 @@
         "title": "88. СУРА АЛ-ГАШИЯ",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00202.jpg",
+        "image": "generated/thumbnails/00202.jpg",
         "duration": "1:05"
       }
     },
     {
       "name": "00204.mp3",
-      "path": "esselqm/media/audio/00204.mp3",
+      "path": "media/audio/00204.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -117,13 +117,13 @@
         "title": "90. СУРА АЛ-БАЛАД",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00204.jpg",
+        "image": "generated/thumbnails/00204.jpg",
         "duration": "1:01"
       }
     },
     {
       "name": "00205.mp3",
-      "path": "esselqm/media/audio/00205.mp3",
+      "path": "media/audio/00205.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -137,13 +137,13 @@
         "title": "91. СУРА АШ-ШАМС",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00205.jpg",
+        "image": "generated/thumbnails/00205.jpg",
         "duration": "0:57"
       }
     },
     {
       "name": "00206.mp3",
-      "path": "esselqm/media/audio/00206.mp3",
+      "path": "media/audio/00206.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -157,13 +157,13 @@
         "title": "92. СУРА АЛ-ЛАЙЛ",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00206.jpg",
+        "image": "generated/thumbnails/00206.jpg",
         "duration": "1:00"
       }
     },
     {
       "name": "00207.mp3",
-      "path": "esselqm/media/audio/00207.mp3",
+      "path": "media/audio/00207.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -177,13 +177,13 @@
         "title": "93. СУРА АД-ДУХА",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00207.jpg",
+        "image": "generated/thumbnails/00207.jpg",
         "duration": "0:34"
       }
     },
     {
       "name": "00208.mp3",
-      "path": "esselqm/media/audio/00208.mp3",
+      "path": "media/audio/00208.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -197,13 +197,13 @@
         "title": "94. СУРА АЛ-ИНШИРАХ",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00208.jpg",
+        "image": "generated/thumbnails/00208.jpg",
         "duration": "0:25"
       }
     },
     {
       "name": "00209.mp3",
-      "path": "esselqm/media/audio/00209.mp3",
+      "path": "media/audio/00209.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -217,13 +217,13 @@
         "title": "95. СУРА АТ-ТИН",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00209.jpg",
+        "image": "generated/thumbnails/00209.jpg",
         "duration": "0:30"
       }
     },
     {
       "name": "00210.mp3",
-      "path": "esselqm/media/audio/00210.mp3",
+      "path": "media/audio/00210.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -237,13 +237,13 @@
         "title": "96. СУРА АЛ-АЛАК",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00210.jpg",
+        "image": "generated/thumbnails/00210.jpg",
         "duration": "1:01"
       }
     },
     {
       "name": "00211.mp3",
-      "path": "esselqm/media/audio/00211.mp3",
+      "path": "media/audio/00211.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -257,13 +257,13 @@
         "title": "97. СУРА АЛ-КАДР",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00211.jpg",
+        "image": "generated/thumbnails/00211.jpg",
         "duration": "0:23"
       }
     },
     {
       "name": "00212.mp3",
-      "path": "esselqm/media/audio/00212.mp3",
+      "path": "media/audio/00212.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -277,13 +277,13 @@
         "title": "98. СУРА АЛ-БАЙИНА",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00212.jpg",
+        "image": "generated/thumbnails/00212.jpg",
         "duration": "1:05"
       }
     },
     {
       "name": "00213.mp3",
-      "path": "esselqm/media/audio/00213.mp3",
+      "path": "media/audio/00213.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -297,13 +297,13 @@
         "title": "99. СУРА АЗ-ЗАЛЗАЛА",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00213.jpg",
+        "image": "generated/thumbnails/00213.jpg",
         "duration": "0:29"
       }
     },
     {
       "name": "00214.mp3",
-      "path": "esselqm/media/audio/00214.mp3",
+      "path": "media/audio/00214.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -317,13 +317,13 @@
         "title": "100. СУРА АЛ-АДИАТ",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00214.jpg",
+        "image": "generated/thumbnails/00214.jpg",
         "duration": "0:34"
       }
     },
     {
       "name": "00215.mp3",
-      "path": "esselqm/media/audio/00215.mp3",
+      "path": "media/audio/00215.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -337,13 +337,13 @@
         "title": "101. СУРА АЛ-КАРИА",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00215.jpg",
+        "image": "generated/thumbnails/00215.jpg",
         "duration": "0:27"
       }
     },
     {
       "name": "00216.mp3",
-      "path": "esselqm/media/audio/00216.mp3",
+      "path": "media/audio/00216.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -357,13 +357,13 @@
         "title": "102. СУРА АТ-ТАКАСУР",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00216.jpg",
+        "image": "generated/thumbnails/00216.jpg",
         "duration": "0:23"
       }
     },
     {
       "name": "00217.mp3",
-      "path": "esselqm/media/audio/00217.mp3",
+      "path": "media/audio/00217.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -377,13 +377,13 @@
         "title": "103. СУРА АЛ-АСР",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00217.jpg",
+        "image": "generated/thumbnails/00217.jpg",
         "duration": "0:15"
       }
     },
     {
       "name": "00218.mp3",
-      "path": "esselqm/media/audio/00218.mp3",
+      "path": "media/audio/00218.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -397,13 +397,13 @@
         "title": "104. СУРА АЛ-ХУМАЗА",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00218.jpg",
+        "image": "generated/thumbnails/00218.jpg",
         "duration": "0:25"
       }
     },
     {
       "name": "00219.mp3",
-      "path": "esselqm/media/audio/00219.mp3",
+      "path": "media/audio/00219.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -417,13 +417,13 @@
         "title": "105. СУРА АЛ-ФИЛ",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00219.jpg",
+        "image": "generated/thumbnails/00219.jpg",
         "duration": "0:20"
       }
     },
     {
       "name": "00220.mp3",
-      "path": "esselqm/media/audio/00220.mp3",
+      "path": "media/audio/00220.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -437,13 +437,13 @@
         "title": "106. СУРА КУРАЙШ",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00220.jpg",
+        "image": "generated/thumbnails/00220.jpg",
         "duration": "0:14"
       }
     },
     {
       "name": "00221.mp3",
-      "path": "esselqm/media/audio/00221.mp3",
+      "path": "media/audio/00221.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -457,13 +457,13 @@
         "title": "107. СУРА АЛ-МАУН",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00221.jpg",
+        "image": "generated/thumbnails/00221.jpg",
         "duration": "0:21"
       }
     },
     {
       "name": "00222.mp3",
-      "path": "esselqm/media/audio/00222.mp3",
+      "path": "media/audio/00222.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -477,13 +477,13 @@
         "title": "108. СУРА АЛ-КАУСАР",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00222.jpg",
+        "image": "generated/thumbnails/00222.jpg",
         "duration": "0:16"
       }
     },
     {
       "name": "00223.mp3",
-      "path": "esselqm/media/audio/00223.mp3",
+      "path": "media/audio/00223.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -497,13 +497,13 @@
         "title": "109. СУРА АЛ-КАФИРУН",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00223.jpg",
+        "image": "generated/thumbnails/00223.jpg",
         "duration": "0:25"
       }
     },
     {
       "name": "00224.mp3",
-      "path": "esselqm/media/audio/00224.mp3",
+      "path": "media/audio/00224.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -517,13 +517,13 @@
         "title": "110. СУРА АН-НАСР",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00224.jpg",
+        "image": "generated/thumbnails/00224.jpg",
         "duration": "0:17"
       }
     },
     {
       "name": "00225.mp3",
-      "path": "esselqm/media/audio/00225.mp3",
+      "path": "media/audio/00225.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -537,13 +537,13 @@
         "title": "111. СУРА АЛ-МАСАД",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00225.jpg",
+        "image": "generated/thumbnails/00225.jpg",
         "duration": "0:18"
       }
     },
     {
       "name": "00226.mp3",
-      "path": "esselqm/media/audio/00226.mp3",
+      "path": "media/audio/00226.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -557,13 +557,13 @@
         "title": "112. СУРА АЛ-ИХЛАС",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00226.jpg",
+        "image": "generated/thumbnails/00226.jpg",
         "duration": "0:13"
       }
     },
     {
       "name": "00227.mp3",
-      "path": "esselqm/media/audio/00227.mp3",
+      "path": "media/audio/00227.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -577,13 +577,13 @@
         "title": "113. СУРА АЛ-ФАЛАК",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00227.jpg",
+        "image": "generated/thumbnails/00227.jpg",
         "duration": "0:20"
       }
     },
     {
       "name": "00228.mp3",
-      "path": "esselqm/media/audio/00228.mp3",
+      "path": "media/audio/00228.mp3",
       "data": {
         "album": "коран-и керим превод",
         "artist": "Бюлент Мюмюнов",
@@ -597,10 +597,10 @@
         "title": "114. СУРА АН-НАС",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00228.jpg",
+        "image": "generated/thumbnails/00228.jpg",
         "duration": "0:22"
       }
     }
   ],
-  "size": 13956
-}
+  "size": 13476
+};

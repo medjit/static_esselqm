@@ -1,9 +1,9 @@
-{
-  "generated_at": "2025-03-09T18:51:20.206Z",
+var Mukhammed_Ramadan_data = {
+  "generated_at": "2025-03-13T05:04:16.679Z",
   "files": [
     {
       "name": "00237.mp3",
-      "path": "esselqm/media/audio/00237.mp3",
+      "path": "media/audio/00237.mp3",
       "data": {
         "album": "Хадиси",
         "artist": "Мухаммед Рамадан",
@@ -17,10 +17,10 @@
         "title": "40-те хадиса - Хадис 5: \"Забраната за нововъведенията (бидат)\"",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00237.jpg",
+        "image": "generated/thumbnails/00237.jpg",
         "duration": "25:34"
       }
     }
   ],
-  "size": 492
-}
+  "size": 476
+};

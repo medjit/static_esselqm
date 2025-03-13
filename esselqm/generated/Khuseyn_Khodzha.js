@@ -1,9 +1,9 @@
-{
-  "generated_at": "2025-03-09T18:51:20.207Z",
+var Khuseyn_Khodzha_data = {
+  "generated_at": "2025-03-13T05:04:16.680Z",
   "files": [
     {
       "name": "00282.mp3",
-      "path": "esselqm/media/audio/00282.mp3",
+      "path": "media/audio/00282.mp3",
       "data": {
         "album": "Лекции",
         "artist": "Хусейн Ходжа",
@@ -17,10 +17,10 @@
         "title": "25 - 309 години сън",
         "trackNumber": null,
         "year": null,
-        "image": "esselqm/generated/thumbnails/00282.jpg",
+        "image": "generated/thumbnails/00282.jpg",
         "duration": "62:59"
       }
     }
   ],
-  "size": 427
-}
+  "size": 411
+};
