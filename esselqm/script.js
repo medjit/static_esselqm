@@ -35,18 +35,20 @@ document.addEventListener('DOMContentLoaded', function () {
          // Load the 'data' object
          console.log(main_data);
 
-         // Dynamically create and load the script for Mishari Rashid Al Afasi
-         const script = document.createElement('script');
-         script.src = main_data.artists[0].path; // Use the artist path from the 'data' object
-         script.onload = function() {
-            // Once the script is loaded, you can print the content to the console
-            console.log('Mishari Rashid Al Afasi data loaded');
-            // Print the content here (assuming the content is in the global scope)
-            const filename = script.src.split('/').pop().replace('.js', '');
-            const artistData = window[`${filename}_data`];
-            console.log(artistData); // This would print the `artistData` object
-         };
-         document.head.appendChild(script); // Append the script to the head of the document
+         // Dynamically create and load the script for each artist in main_data
+         main_data.artists.forEach(artist => {
+            const script = document.createElement('script');
+            script.src = artist.path; // Use the artist path from the 'data' object
+            script.onload = function() {
+               // Once the script is loaded, you can print the content to the console
+               console.log(`${artist.name} data loaded`);
+               // Print the content here (assuming the content is in the global scope)
+               const filename = script.src.split('/').pop().replace('.js', '');
+               const artistData = window[`${filename}_data`];
+               console.log(artistData); // This would print the `artistData` object
+            };
+            document.head.appendChild(script); // Append the script to the head of the document
+         });
    }
 
    // Load the theme from local storage
